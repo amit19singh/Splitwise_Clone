@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settle Up</title>
+</head>
+<body>
+    <h2>Settle Up</h2>
+    <form method="get" action="{% url 'settle_up' user_id=user_to_pay.id %}">
+        <label for="payment_amount">Payment Amount:</label>
+        <input type="text" id="payment_amount" name="payment_amount">
+        <button type="submit">Settle</button>
+    </form>
+</body>
+</html>

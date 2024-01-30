@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Group Details</title>
+    <!-- Include your CSS framework here -->
+</head>
+<body>
+    <h1>Group: {{ group.name }}</h1>
+    <h3>Members</h3>
+    <ul>
+        {% for member in group.members.all %}
+        <li>{{ member.username }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Expenses</h2>
+    <ul>
+        {% for expense in group.expenses.all %}
+        <li>{{ expense.description }} - {{ expense.amount }}</li>
+        {% empty %}
+        <li>No expenses recorded for this group.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'splitwise_home' %}">Back to Home</a>
+</body>
+</html>
+

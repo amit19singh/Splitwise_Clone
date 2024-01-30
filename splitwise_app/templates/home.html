@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h2>Expenses</h2>
+    <ul>
+        {% for expense in expenses %}
+        <li>
+            {{ expense.description }} - {{ expense.amount }} 
+            <a href="{% url 'edit_expense' expense.id %}">Edit</a>
+        </li>
+        {% empty %}
+        <li>No expenses recorded.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_expense' %}">Add Expense</a>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense Tracker</title>
+    <!-- Include CSS for styling (Bootstrap, custom CSS) -->
+    <link rel="stylesheet" href="path_to_your_css_framework.css">
+</head>
+<body>
+    <header>
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'splitwise_home' %}">Home</a></li>
+                <li><a href="{% url 'add_expense' %}">Add Expense</a></li>
+                <!-- Add other navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Displaying Expenses -->
+        <section>
+            <h2>Your Expenses</h2>
+            <ul>
+                {% for expense in expenses %}
+                <li>
+                    <strong>Description:</strong> {{ expense.description }}<br>
+                    <strong>Amount:</strong> {{ expense.amount }}<br>
+                    <strong>Paid By:</strong> {{ expense.paid_by }}<br>
+                    <!-- Include more details as needed -->
+                </li>
+                {% empty %}
+                <li>No expenses recorded yet.</li>
+                {% endfor %}
+            </ul>
+            <a href="{% url 'add_expense' %}">Add Expense</a>
+        </section>
+
+        <!-- Future Sections -->
+        <!-- Section for Balances -->
+        <!-- Section for Group Expenses -->
+
+    </main>
+
+    <footer>
+        <p>© 2023 Expense Tracker</p>
+    </footer>
+
+    <!-- Include JavaScript files if needed -->
+</body> 
+</html>

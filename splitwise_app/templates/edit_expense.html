@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Expense</title>
+    <!-- Include your CSS framework here -->
+</head>
+<body>
+    <h1>Add New Expense</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Expense</button>
+    </form>
+    <a href="{% url 'splitwise_home' %}">Back to Home</a>
+</body>
+</html>
+
+
